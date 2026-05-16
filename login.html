@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdentityStore Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #ff4b2b);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background Glow */
+    body::before,
+    body::after {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    body::before {
+      background: #ff00ff;
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      background: #00ffff;
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .login-container {
+      width: 400px;
+      padding: 40px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      color: white;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo h1 {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 8px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      outline: none;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .input-group input:focus {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.02);
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .forgot-password a {
+      text-decoration: none;
+      color: #ffe082;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .forgot-password a:hover {
+      color: white;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(to right, #ffcc70, #ff6f61);
+      color: black;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .divider {
+      text-align: center;
+      margin: 25px 0;
+      position: relative;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .divider::before {
+      left: 0;
+    }
+
+    .divider::after {
+      right: 0;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: white;
+      color: #333;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s ease;
+    }
+
+    .google-btn:hover {
+      transform: scale(1.02);
+      background: #f1f1f1;
+    }
+
+    .google-btn img {
+      width: 20px;
+    }
+
+    .create-account {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+
+    .create-account a {
+      color: #ffe082;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .create-account a:hover {
+      color: white;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+
+      .logo h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="logo">
+      <h1>IdentityStore</h1>
+      <p>Welcome back! Login to continue</p>
+    </div>
+
+    <form>
+
+      <div class="input-group">
+        <label>Gmail or Phone Number</label>
+        <input type="text" placeholder="Enter your Gmail or Phone Number">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your Password">
+      </div>
+
+      <div class="forgot-password">
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button class="login-btn">Login</button>
+
+      <div class="divider">OR</div>
+
+      <button type="button" class="google-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+        Continue with Google
+      </button>
+
+      <div class="create-account">
+        Don't have an account?
+        <a href="#">Create Account</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Forgot Password Page -->
+
+  <div class="login-container" id="forgotPage" style="display:none;">
+    <div class="logo">
+      <h1>Reset Password</h1>
+      <p>Recover your IdentityStore account</p>
+    </div>
+
+    <form>
+      <div class="input-group">
+        <label>Gmail or Phone Number</label>
+        <input type="text" placeholder="Enter your Gmail or Phone Number">
+      </div>
+
+      <div class="input-group">
+        <label>Confirmation Code</label>
+        <input type="text" placeholder="Enter confirmation code">
+      </div>
+
+      <div class="input-group">
+        <label>New Password</label>
+        <input type="password" placeholder="Enter new password">
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm your password">
+      </div>
+
+      <button class="login-btn">Submit</button>
+
+      <div class="create-account">
+        <a href="#" onclick="showLoginPage()">Back to Login</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Create Account Page -->
+
+  <div class="login-container" id="createAccountPage" style="display:none;">
+    <div class="logo">
+      <h1>Create Account</h1>
+      <p>Join IdentityStore today</p>
+    </div>
+
+    <form>
+      <div class="input-group">
+        <label>Gmail or Phone Number</label>
+        <input type="text" placeholder="Enter your Gmail or Phone Number">
+      </div>
+
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" placeholder="Choose a username">
+      </div>
+
+      <div class="input-group">
+        <label>Create Password</label>
+        <input type="password" placeholder="Create your password">
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm your password">
+      </div>
+
+      <button class="login-btn">Create Account</button>
+
+      <div class="divider">OR</div>
+
+      <button type="button" class="google-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+        Continue with Google
+      </button>
+
+      <div class="create-account">
+        Already have an account?
+        <a href="#" onclick="showLoginPageFromCreate()">Back to Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const forgotBtn = document.querySelector('.forgot-password a');
+    const createBtn = document.querySelector('.create-account a');
+    const loginPage = document.querySelector('.login-container');
+    const forgotPage = document.getElementById('forgotPage');
+    const createAccountPage = document.getElementById('createAccountPage');
+
+    forgotBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      loginPage.style.display = 'none';
+      forgotPage.style.display = 'block';
+    });
+
+    createBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      loginPage.style.display = 'none';
+      createAccountPage.style.display = 'block';
+    });
+
+    function showLoginPage() {
+      forgotPage.style.display = 'none';
+      loginPage.style.display = 'block';
+    }
+
+    function showLoginPageFromCreate() {
+      createAccountPage.style.display = 'none';
+      loginPage.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
