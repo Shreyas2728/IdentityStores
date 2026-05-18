@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - IdentityStores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#paint0_linear)" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M2 17L12 22L22 17" stroke="url(#paint1_linear)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 12L12 17L22 12" stroke="url(#paint2_linear)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="2" y1="7" x2="22" y2="7"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#8B5CF6" />
+                                <stop offset="1" stop-color="#3B82F6" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear" x1="2" y1="19.5" x2="22" y2="19.5"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#8B5CF6" />
+                                <stop offset="1" stop-color="#3B82F6" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear" x1="2" y1="14.5" x2="22" y2="14.5"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#8B5CF6" />
+                                <stop offset="1" stop-color="#3B82F6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2>IdentityStores</h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16">
+                        </path>
+                    </svg>
+                    Products
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    Orders
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    Cart
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                    Settings
+                </a>
+                <a href="index.html" class="nav-item text-error">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Log out
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" placeholder="Search across identity stores...">
+                </div>
+
+                <div class="header-actions" style="position: relative;">
+                    <button class="icon-btn" id="btn-notifications">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="badge"></span>
+                    </button>
+                    <!-- Notifications Dropdown -->
+                    <div class="notification-dropdown hidden" id="notification-dropdown">
+                        <div class="notification-header">Recent Notifications</div>
+                        <div class="notification-list">
+                            <div class="notification-item unread">
+                                <span class="notif-title">Order #ORD-8821 Processing</span>
+                                <span class="notif-time">2 mins ago</span>
+                            </div>
+                            <div class="notification-item unread">
+                                <span class="notif-title">New exclusive drop: Neon Cyber</span>
+                                <span class="notif-time">1 hour ago</span>
+                            </div>
+                            <div class="notification-item">
+                                <span class="notif-title">Order #ORD-8799 Shipped</span>
+                                <span class="notif-time">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-profile" id="btn-profile">
+                        <img src="https://ui-avatars.com/api/?name=User&background=8b5cf6&color=fff&rounded=true"
+                            alt="User Profile">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="content-area">
+                <div class="background-elements">
+                    <div class="blob blob-1"></div>
+                    <div class="blob blob-2"></div>
+                </div>
+
+                <div class="hero-container" id="home-view">
+                    <h1 class="hero-text">WEAR YOUR IDENTITY</h1>
+                    <div class="action-cards">
+                        <button class="action-card card-purple" id="btn-upload-design">
+                            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            <span>Upload Design</span>
+                        </button>
+                        <button class="action-card card-blue">
+                            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <span>Generate Design</span>
+                        </button>
+                        <button class="action-card card-pink" id="btn-drops">
+                            <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <span>Drops</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="drops-container hidden" id="drops-view">
+                    <div class="drops-header">
+                        <h2>Latest Drops</h2>
+                        <button class="btn-back" id="btn-back-home">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back
+                        </button>
+                    </div>
+                    
+                    <div class="drops-grid">
+                        <div class="drop-card">
+                            <div class="drop-image">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cyberpunk Hoodie" class="previewable-img">
+                            </div>
+                            <div class="drop-info">
+                                <div>
+                                    <h3>Neon Cyber Hoodie</h3>
+                                    <p>Dropped 2 days ago</p>
+                                </div>
+                                <a href="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" download="neon_cyber_hoodie.jpg" target="_blank" class="download-btn" title="Download Design">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="drop-card">
+                            <div class="drop-image">
+                                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Graphic Tee" class="previewable-img">
+                            </div>
+                            <div class="drop-info">
+                                <div>
+                                    <h3>Identity Core Tee</h3>
+                                    <p>Dropped 5 days ago</p>
+                                </div>
+                                <a href="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" download="identity_core_tee.jpg" target="_blank" class="download-btn" title="Download Design">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="drop-card">
+                            <div class="drop-image">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Streetwear Jacket" class="previewable-img">
+                            </div>
+                            <div class="drop-info">
+                                <div>
+                                    <h3>Urban Tech Jacket</h3>
+                                    <p>Dropped 1 week ago</p>
+                                </div>
+                                <a href="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" download="urban_tech_jacket.jpg" target="_blank" class="download-btn" title="Download Design">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart View -->
+                <div class="cart-container hidden" id="cart-view">
+                    <div class="drops-header">
+                        <h2>Your Cart</h2>
+                        <button class="btn-back" id="btn-back-home-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back
+                        </button>
+                    </div>
+                    
+                    <div class="cart-grid drops-grid" id="cart-grid">
+                        <!-- Cart items will be appended here -->
+                        <div class="empty-state" id="cart-empty-state">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;opacity:0.5;margin-bottom:1rem;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <p>Your cart is empty.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orders View -->
+                <div class="orders-container hidden" id="orders-view">
+                    <div class="drops-header">
+                        <h2>Your Orders</h2>
+                        <button class="btn-back" id="btn-back-home-orders">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back
+                        </button>
+                    </div>
+
+                    <div class="order-tabs">
+                        <button class="order-tab active" data-tab="present">Present Orders</button>
+                        <button class="order-tab" data-tab="recent">Recent Orders</button>
+                        <button class="order-tab" data-tab="completed">Completed Orders</button>
+                    </div>
+
+                    <div class="order-list-container">
+                        <!-- Present Orders -->
+                        <div class="order-list active" id="orders-present">
+                            <div class="order-card">
+                                <div class="order-image">
+                                    <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?auto=format&fit=crop&w=150&q=80" alt="Order Thumbnail">
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-header-info">
+                                        <h3>Custom Hoodie (L)</h3>
+                                        <span class="order-status status-processing">Processing</span>
+                                    </div>
+                                    <p class="order-meta">Order #ORD-8821 • Placed Today</p>
+                                    <p class="order-price">$45.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Orders -->
+                        <div class="order-list" id="orders-recent">
+                            <div class="order-card">
+                                <div class="order-image">
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=150&q=80" alt="Order Thumbnail">
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-header-info">
+                                        <h3>Urban Tech Half Sleeve (M)</h3>
+                                        <span class="order-status status-shipped">Shipped</span>
+                                    </div>
+                                    <p class="order-meta">Order #ORD-8799 • Shipped Yesterday</p>
+                                    <p class="order-price">$32.50</p>
+                                </div>
+                            </div>
+                            <div class="order-card">
+                                <div class="order-image">
+                                    <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=150&q=80" alt="Order Thumbnail">
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-header-info">
+                                        <h3>Neon Cyber Tank Top (S)</h3>
+                                        <span class="order-status status-shipped">Shipped</span>
+                                    </div>
+                                    <p class="order-meta">Order #ORD-8750 • Shipped 3 days ago</p>
+                                    <p class="order-price">$28.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Completed Orders -->
+                        <div class="order-list" id="orders-completed">
+                            <div class="order-card">
+                                <div class="order-image">
+                                    <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=150&q=80" alt="Order Thumbnail">
+                                </div>
+                                <div class="order-details">
+                                    <div class="order-header-info">
+                                        <h3>Identity Core Full Sleeve (XL)</h3>
+                                        <span class="order-status status-delivered">Delivered</span>
+                                    </div>
+                                    <p class="order-meta">Order #ORD-8610 • Delivered last week</p>
+                                    <p class="order-price">$38.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor View -->
+                <div class="editor-container hidden" id="editor-view">
+                    <!-- Left: Mockup Area -->
+                    <div class="mockup-stage">
+                        <div class="tshirt-mockup" id="tshirt-mockup">
+                            <!-- Real garment photo -->
+                            <img id="garment-photo" class="garment-photo"
+                                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=90"
+                                alt="T-Shirt Mockup">
+                            <!-- Color overlay (mix-blend-mode: multiply) -->
+                            <div class="garment-color-overlay" id="garment-color-overlay"></div>
+                            <!-- Design Overlay -->
+                            <div class="design-overlay" id="design-overlay">
+                                <img src="" id="uploaded-design-img" alt="Uploaded Design" class="hidden">
+                                <div id="text-overlay" class="text-overlay-element"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Control Panel -->
+                    <div class="control-panel">
+                        <h2>Design Studio</h2>
+                        
+                        <div class="control-group">
+                            <label>Garment Style</label>
+                            
+                            <div class="view-toggle">
+                                <button class="toggle-btn active" id="btn-view-front">Front</button>
+                                <button class="toggle-btn" id="btn-view-back">Back</button>
+                            </div>
+
+                            <div class="garment-selector">
+                                <button class="garment-btn active" data-garment="half">
+                                    <svg viewBox="0 0 40 50" fill="currentColor"><path d="M14,6 Q20,11 26,6 L34,10 L31,18 L29,16 L29,46 L11,46 L11,16 L9,18 L6,10 Z"/></svg>
+                                    Half Sleeve
+                                </button>
+                                <button class="garment-btn" data-garment="full">
+                                    <svg viewBox="0 0 40 50" fill="currentColor"><path d="M16,6 Q20,11 24,6 L36,11 L37,28 L30,30 L29,46 L11,46 L10,30 L3,28 L4,11 Z"/></svg>
+                                    Full Sleeve
+                                </button>
+                                <button class="garment-btn" data-garment="hood">
+                                    <svg viewBox="0 0 40 50" fill="currentColor"><path d="M14,8 Q20,13 26,8 L36,12 L37,30 L29,31 L29,46 L11,46 L11,31 L3,30 L4,12 Z M14,8 Q18,3 20,2 Q22,3 26,8 Q23,5 20,5 Q17,5 14,8 Z"/></svg>
+                                    Hoodie
+                                </button>
+                                <button class="garment-btn" data-garment="tank">
+                                    <svg viewBox="0 0 40 50" fill="currentColor"><path d="M14,5 Q20,8 26,5 L28,7 Q24,10 23,11 L23,46 L17,46 L17,11 Q16,10 12,7 Z"/></svg>
+                                    Tank Top
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Size</label>
+                            <div class="size-selector">
+                                <button class="size-btn">S</button>
+                                <button class="size-btn active">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                                <button class="size-btn">XXL</button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Garment Color</label>
+                            <div class="color-swatches">
+                                <button class="color-swatch" style="background-color: #ffffff;" data-color="#ffffff"></button>
+                                <button class="color-swatch" style="background-color: #0f172a;" data-color="#0f172a"></button>
+                                <button class="color-swatch" style="background-color: #ef4444;" data-color="#ef4444"></button>
+                                <button class="color-swatch" style="background-color: #3b82f6;" data-color="#3b82f6"></button>
+                                <button class="color-swatch" style="background-color: #8b5cf6;" data-color="#8b5cf6"></button>
+                                <button class="color-swatch" style="background-color: #10b981;" data-color="#10b981" title="Emerald Green"></button>
+                                <button class="color-swatch" style="background-color: #f59e0b;" data-color="#f59e0b" title="Amber"></button>
+                                <button class="color-swatch" style="background-color: #ec4899;" data-color="#ec4899" title="Pink"></button>
+                                <button class="color-swatch" style="background-color: #64748b;" data-color="#64748b" title="Slate Gray"></button>
+                                <button class="color-swatch" style="background-color: #1e1b4b;" data-color="#1e1b4b" title="Deep Indigo"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Design Scale: <span id="scale-val">100%</span></label>
+                            <input type="range" id="design-scale" min="10" max="200" value="100">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Rotation: <span id="rotate-val">0°</span></label>
+                            <input type="range" id="design-rotate" min="0" max="360" value="0">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Opacity: <span id="opacity-val">100%</span></label>
+                            <input type="range" id="design-opacity" min="0" max="100" value="100">
+                        </div>
+                        
+                        <div class="control-group text-controls">
+                            <label>Custom Text</label>
+                            <input type="text" id="custom-text-input" placeholder="Type text here...">
+                            
+                            <div class="text-styling-grid">
+                                <div>
+                                    <label>Color</label>
+                                    <input type="color" id="text-color" value="#ffffff">
+                                </div>
+                                <div>
+                                    <label>Size</label>
+                                    <input type="range" id="text-size" min="10" max="100" value="32">
+                                </div>
+                                <div>
+                                    <label>Font</label>
+                                    <select id="text-font">
+                                        <option value="'Inter', sans-serif">Inter</option>
+                                        <option value="'Times New Roman', serif">Serif</option>
+                                        <option value="'Courier New', monospace">Monospace</option>
+                                        <option value="cursive">Cursive</option>
+                                        <option value="Impact, sans-serif">Impact</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="text-actions">
+                                <button id="btn-add-text" class="btn-action">Update Text</button>
+                                <button id="btn-delete-text" class="btn-action btn-danger">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="editor-actions">
+                            <button id="btn-save-design" class="btn-primary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:6px;display:inline-block;vertical-align:middle;"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                Save & Add to Cart
+                            </button>
+                            <button id="btn-cancel-edit" class="btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile View -->
+                <div class="profile-container hidden" id="profile-view">
+                    <div class="drops-header">
+                        <h2>Your Profile</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-avatar-section">
+                            <img src="https://ui-avatars.com/api/?name=User&background=8b5cf6&color=fff&rounded=true" alt="User Avatar">
+                            <div>
+                                <button class="btn-secondary">Change Avatar</button>
+                            </div>
+                        </div>
+                        <form onsubmit="event.preventDefault();">
+                            <div class="settings-grid" style="margin-top:0;">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" value="Identity User">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" value="user@identitystores.com">
+                                </div>
+                            </div>
+                            <div class="settings-grid" style="margin-top:0;">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" value="+1 (555) 123-4567">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Shipping Address</label>
+                                <textarea rows="3">123 Identity Street&#10;Fashion District&#10;NY 10001</textarea>
+                            </div>
+                            <button class="btn-primary" style="margin-top: 1rem;">Save Profile Settings</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Settings View -->
+                <div class="settings-container hidden" id="settings-view">
+                    <div class="drops-header">
+                        <h2>Settings</h2>
+                    </div>
+
+                    <div class="settings-grid">
+                        <!-- Profile Card -->
+                        <div class="settings-card">
+                            <h3>Edit Profile</h3>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">Full Name</span>
+                                </div>
+                                <input type="text" value="Identity User" style="background:var(--bg-tertiary); color:var(--text-primary); border:1px solid var(--border-color); padding:8px 12px; border-radius:6px; outline:none; width:60%;">
+                            </div>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">Email</span>
+                                </div>
+                                <input type="email" value="user@identitystores.com" style="background:var(--bg-tertiary); color:var(--text-primary); border:1px solid var(--border-color); padding:8px 12px; border-radius:6px; outline:none; width:60%;">
+                            </div>
+                            <button class="btn-primary" style="width:100%; margin-top:1rem;">Save Changes</button>
+                        </div>
+
+                        <!-- Theme Preferences -->
+                        <div class="settings-card">
+                            <h3>Appearance</h3>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">Light Mode</span>
+                                    <span class="settings-row-desc">Switch to a bright, clean theme across the website</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="theme-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <div class="settings-card">
+                            <h3>Notifications</h3>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">Email Alerts</span>
+                                    <span class="settings-row-desc">Receive updates about your drops and orders</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">SMS Notifications</span>
+                                    <span class="settings-row-desc">Get text messages for shipping updates</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Permissions -->
+                        <div class="settings-card">
+                            <h3>System Permissions</h3>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">Location Access</span>
+                                    <span class="settings-row-desc">Used for estimating shipping times</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-row">
+                                <div class="settings-row-info">
+                                    <span class="settings-row-title">Analytics Tracking</span>
+                                    <span class="settings-row-desc">Help us improve the Design Studio experience</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Help Center -->
+                        <div class="settings-card" style="grid-column: 1 / -1;">
+                            <h3>Help Center</h3>
+                            <p style="color:var(--text-secondary); margin-bottom:1rem; font-size:0.9rem;">Need assistance? We're here to help you build your identity.</p>
+                            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                                <button class="btn-secondary">FAQs</button>
+                                <button class="btn-secondary">Contact Support</button>
+                                <button class="btn-secondary">Design Documentation</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Footer -->
+                <footer class="global-footer">
+                    &copy; 2026 IdentityStores. All rights reserved. <br>
+                    <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+                </footer>
+            </main>
+        </div>
+    
+    <!-- Image Preview Modal -->
+    <div id="preview-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <img id="preview-image" src="" alt="Design Preview">
+        </div>
+    </div>
+    
+    <!-- Hidden File Input for Uploading Design -->
+    <input type="file" id="design-upload-input" accept="image/*" class="hidden">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeView = document.getElementById('home-view');
+            const dropsView = document.getElementById('drops-view');
+            const cartView = document.getElementById('cart-view');
+            const ordersView = document.getElementById('orders-view');
+            const settingsView = document.getElementById('settings-view');
+            const editorView = document.getElementById('editor-view');
+            const profileView = document.getElementById('profile-view');
+            
+            const btnDrops = document.getElementById('btn-drops');
+            const btnBackHome = document.getElementById('btn-back-home');
+            const btnBackHomeCart = document.getElementById('btn-back-home-cart');
+            const btnBackHomeOrders = document.getElementById('btn-back-home-orders');
+            
+            // Notifications & Profile
+            const btnNotifications = document.getElementById('btn-notifications');
+            const notificationDropdown = document.getElementById('notification-dropdown');
+            const btnProfile = document.getElementById('btn-profile');
+            
+            // Modal Elements
+            const previewModal = document.getElementById('preview-modal');
+            const previewImage = document.getElementById('preview-image');
+            const closeModal = document.getElementById('close-modal');
+            const previewableImgs = document.querySelectorAll('.previewable-img');
+            
+            // Upload Elements
+            const btnUploadDesign = document.getElementById('btn-upload-design');
+            const uploadInput = document.getElementById('design-upload-input');
+            
+            // Sidebar Links
+            const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
+            const navDashboard = navItems[0];
+            const navOrders = navItems[2];
+            const navCart = navItems[3];
+            const navSettings = document.querySelector('.sidebar-bottom .nav-item'); // First item in sidebar-bottom is Settings
+            
+            function hideAllViews() {
+                if(homeView) homeView.classList.add('hidden');
+                if(dropsView) dropsView.classList.add('hidden');
+                if(cartView) cartView.classList.add('hidden');
+                if(ordersView) ordersView.classList.add('hidden');
+                if(settingsView) settingsView.classList.add('hidden');
+                if(editorView) editorView.classList.add('hidden');
+                if(profileView) profileView.classList.add('hidden');
+                navItems.forEach(item => item.classList.remove('active'));
+                if(navSettings) navSettings.classList.remove('active');
+            }
+            
+            // Notifications Toggle Logic
+            if (btnNotifications) {
+                btnNotifications.addEventListener('click', (e) => {
+                    e.stopPropagation(); // prevent document click from firing
+                    notificationDropdown.classList.toggle('hidden');
+                });
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (notificationDropdown && !notificationDropdown.classList.contains('hidden')) {
+                    if (!btnNotifications.contains(e.target) && !notificationDropdown.contains(e.target)) {
+                        notificationDropdown.classList.add('hidden');
+                    }
+                }
+            });
+            
+            // Profile Navigation Logic
+            if (btnProfile) {
+                btnProfile.addEventListener('click', () => {
+                    hideAllViews();
+                    if(profileView) profileView.classList.remove('hidden');
+                    if (notificationDropdown) notificationDropdown.classList.add('hidden');
+                });
+            }
+
+            if (btnDrops) {
+                btnDrops.addEventListener('click', () => {
+                    hideAllViews();
+                    if(dropsView) dropsView.classList.remove('hidden');
+                });
+            }
+            if (btnBackHome) {
+                btnBackHome.addEventListener('click', () => {
+                    hideAllViews();
+                    if(homeView) homeView.classList.remove('hidden');
+                    if(navDashboard) navDashboard.classList.add('active');
+                });
+            }
+            if (btnBackHomeCart) {
+                btnBackHomeCart.addEventListener('click', () => {
+                    hideAllViews();
+                    if(homeView) homeView.classList.remove('hidden');
+                    if(navDashboard) navDashboard.classList.add('active');
+                });
+            }
+            if (btnBackHomeOrders) {
+                btnBackHomeOrders.addEventListener('click', () => {
+                    hideAllViews();
+                    if(homeView) homeView.classList.remove('hidden');
+                    if(navDashboard) navDashboard.classList.add('active');
+                });
+            }
+            if (navDashboard) {
+                navDashboard.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    hideAllViews();
+                    if(homeView) homeView.classList.remove('hidden');
+                    navDashboard.classList.add('active');
+                });
+            }
+            if (navOrders) {
+                navOrders.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    hideAllViews();
+                    if(ordersView) ordersView.classList.remove('hidden');
+                    navOrders.classList.add('active');
+                });
+            }
+            if (navCart) {
+                navCart.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    hideAllViews();
+                    if(cartView) cartView.classList.remove('hidden');
+                    navCart.classList.add('active');
+                });
+            }
+            if (navSettings) {
+                navSettings.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    hideAllViews();
+                    if(settingsView) settingsView.classList.remove('hidden');
+                    navSettings.classList.add('active');
+                });
+            }
+            
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            // Check for saved theme preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                if (themeToggle) themeToggle.checked = true;
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('change', () => {
+                    if (themeToggle.checked) {
+                        document.body.classList.add('light-theme');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.body.classList.remove('light-theme');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+            }
+            
+            // Order Tabs Logic
+            const orderTabs = document.querySelectorAll('.order-tab');
+            const orderLists = document.querySelectorAll('.order-list');
+            
+            orderTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from all tabs and lists
+                    orderTabs.forEach(t => t.classList.remove('active'));
+                    orderLists.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding list
+                    const targetId = `orders-${tab.getAttribute('data-tab')}`;
+                    const targetList = document.getElementById(targetId);
+                    if (targetList) targetList.classList.add('active');
+                });
+            });
+            
+            // Modal Logic
+            previewableImgs.forEach(img => {
+                img.addEventListener('click', () => {
+                    previewImage.src = img.src;
+                    previewModal.classList.remove('hidden');
+                });
+            });
+            
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    previewModal.classList.add('hidden');
+                });
+            }
+            
+            // Close modal when clicking outside the image
+            if (previewModal) {
+                previewModal.addEventListener('click', (e) => {
+                    if (e.target === previewModal) {
+                        previewModal.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Editor & Upload Logic
+            const uploadedDesignImg = document.getElementById('uploaded-design-img');
+
+            if (btnUploadDesign) {
+                btnUploadDesign.addEventListener('click', () => {
+                    // Instantly show the editor view
+                    hideAllViews();
+                    if(editorView) editorView.classList.remove('hidden');
+                    // Also trigger upload dialog
+                    if(uploadInput) uploadInput.click();
+                });
+            }
+            
+            if (uploadInput) {
+                uploadInput.addEventListener('change', (e) => {
+                    if (e.target.files && e.target.files[0]) {
+                        const file = e.target.files[0];
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(event) {
+                            if(uploadedDesignImg) {
+                                uploadedDesignImg.src = event.target.result;
+                                uploadedDesignImg.classList.remove('hidden');
+                            }
+                            hideAllViews();
+                            if(editorView) editorView.classList.remove('hidden');
+                        };
+                        
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            if (editorView) {
+                const designOverlay = document.getElementById('design-overlay');
+                const designScale = document.getElementById('design-scale');
+                const designRotate = document.getElementById('design-rotate');
+                const designOpacity = document.getElementById('design-opacity');
+                const colorSwatches = document.querySelectorAll('.color-swatch');
+                const textInput = document.getElementById('custom-text-input');
+                const textColor = document.getElementById('text-color');
+                const textSize = document.getElementById('text-size');
+                const textFont = document.getElementById('text-font');
+                const textOverlay = document.getElementById('text-overlay');
+                const btnAddText = document.getElementById('btn-add-text');
+                const btnDeleteText = document.getElementById('btn-delete-text');
+                const btnSaveDesign = document.getElementById('btn-save-design');
+                const btnCancelEdit = document.getElementById('btn-cancel-edit');
+
+                let currentColor = 'transparent';
+                let currentGarment = 'half';
+                let currentView = 'front';
+                let currentSize = 'M';
+
+                // Real photo URLs for each garment type (Front and Back)
+                const garmentPhotos = {
+                    half: {
+                        front: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=90',
+                        back: 'https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=600&q=90' // Simple generic back
+                    },
+                    full: {
+                        front: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=90',
+                        back: 'https://images.unsplash.com/photo-1618354691249-18772bb100fa?auto=format&fit=crop&w=600&q=90'
+                    },
+                    hood: {
+                        front: 'https://images.unsplash.com/photo-1556821840-3a63f15732ce?auto=format&fit=crop&w=600&q=90',
+                        back: 'https://images.unsplash.com/photo-1556821838-89c0b115cb9e?auto=format&fit=crop&w=600&q=90'
+                    },
+                    tank: {
+                        front: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=600&q=90',
+                        back: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=90'
+                    }
+                };
+                
+                const garmentPhoto = document.getElementById('garment-photo');
+                const colorOverlay = document.getElementById('garment-color-overlay');
+
+                // View Toggle (Front / Back)
+                const btnViewFront = document.getElementById('btn-view-front');
+                const btnViewBack = document.getElementById('btn-view-back');
+                
+                function updateGarmentPhoto() {
+                    garmentPhoto.src = garmentPhotos[currentGarment][currentView];
+                }
+
+                btnViewFront.addEventListener('click', () => {
+                    currentView = 'front';
+                    btnViewFront.classList.add('active');
+                    btnViewBack.classList.remove('active');
+                    updateGarmentPhoto();
+                });
+
+                btnViewBack.addEventListener('click', () => {
+                    currentView = 'back';
+                    btnViewBack.classList.add('active');
+                    btnViewFront.classList.remove('active');
+                    updateGarmentPhoto();
+                });
+
+                // Garment Selector
+                const garmentBtns = document.querySelectorAll('.garment-btn');
+
+                garmentBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        garmentBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentGarment = btn.getAttribute('data-garment');
+                        updateGarmentPhoto();
+                    });
+                });
+
+                // Size Selector
+                const sizeBtns = document.querySelectorAll('.size-btn');
+                sizeBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        sizeBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentSize = btn.innerText;
+                    });
+                });
+
+                // Color Swatches — use multiply overlay
+                function applyGarmentColor(color) {
+                    currentColor = color;
+                    if (color === '#ffffff' || color === 'transparent') {
+                        colorOverlay.style.backgroundColor = 'transparent';
+                    } else {
+                        colorOverlay.style.backgroundColor = color;
+                    }
+                }
+
+                colorSwatches.forEach(swatch => {
+                    swatch.addEventListener('click', () => {
+                        applyGarmentColor(swatch.getAttribute('data-color'));
+                    });
+                });
+                // Set default color on load
+                applyGarmentColor(currentColor);
+                
+                
+                // Transform & Style Logic
+                let posX = 0, posY = 0;
+                let isDragging = false, startX, startY;
+                
+                designOverlay.style.cursor = 'grab';
+                
+                designOverlay.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    designOverlay.style.cursor = 'grabbing';
+                    startX = e.clientX - posX;
+                    startY = e.clientY - posY;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    posX = e.clientX - startX;
+                    posY = e.clientY - startY;
+                    updateTransform();
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                    designOverlay.style.cursor = 'grab';
+                });
+
+                function updateTransform() {
+                    const scale = designScale.value / 100;
+                    const rotate = designRotate.value;
+                    designOverlay.style.transform = `translate(-50%, -50%) translate(${posX}px, ${posY}px) scale(${scale}) rotate(${rotate}deg)`;
+                    designOverlay.style.opacity = designOpacity.value / 100;
+                }
+                
+                designScale.addEventListener('input', () => {
+                    document.getElementById('scale-val').innerText = `${designScale.value}%`;
+                    updateTransform();
+                });
+                designRotate.addEventListener('input', () => {
+                    document.getElementById('rotate-val').innerText = `${designRotate.value}°`;
+                    updateTransform();
+                });
+                designOpacity.addEventListener('input', () => {
+                    document.getElementById('opacity-val').innerText = `${designOpacity.value}%`;
+                    updateTransform();
+                });
+                
+                // Text Logic
+                function updateTextStyles() {
+                    textOverlay.style.color = textColor.value;
+                    textOverlay.style.fontSize = `${textSize.value}px`;
+                    textOverlay.style.fontFamily = textFont.value;
+                }
+                
+                textColor.addEventListener('input', updateTextStyles);
+                textSize.addEventListener('input', updateTextStyles);
+                textFont.addEventListener('change', updateTextStyles);
+
+                btnAddText.addEventListener('click', () => {
+                    textOverlay.innerText = textInput.value;
+                    updateTextStyles();
+                });
+                
+                btnDeleteText.addEventListener('click', () => {
+                    textOverlay.innerText = '';
+                    textInput.value = '';
+                });
+                
+                // Actions
+                btnCancelEdit.addEventListener('click', () => {
+                    hideAllViews();
+                    homeView.classList.remove('hidden');
+                    navDashboard.classList.add('active');
+                    uploadInput.value = ''; // Reset input
+                });
+                
+                btnSaveDesign.addEventListener('click', () => {
+                    // Create simulated saved item card
+                    const dropCardHTML = `
+                        <div class="drop-card" style="position:relative; overflow:hidden;">
+                            <div class="drop-image" style="background-color: ${currentColor !== 'transparent' ? currentColor : '#f1f5f9'};">
+                                <img src="${garmentPhotos[currentGarment].front}" alt="Custom Design" style="mix-blend-mode: multiply;">
+                                <div style="position:absolute; top:35%; left:50%; transform:translate(-50%,-50%); width:30%;">
+                                    <img src="${uploadedDesignImg.src}" style="max-width:100%;">
+                                </div>
+                            </div>
+                            <div class="drop-info">
+                                <div>
+                                    <h3>Custom ${currentGarment.charAt(0).toUpperCase() + currentGarment.slice(1)} (${currentSize})</h3>
+                                    <p>Saved just now</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add to Drops
+                    document.querySelector('.drops-grid').insertAdjacentHTML('afterbegin', dropCardHTML);
+                    
+                    // Add to Cart
+                    const cartGrid = document.getElementById('cart-grid');
+                    const emptyState = document.getElementById('cart-empty-state');
+                    if(emptyState) emptyState.remove();
+                    cartGrid.insertAdjacentHTML('afterbegin', dropCardHTML);
+
+                    alert('Design successfully added to Cart and saved in Drops!');
+                    
+                    // Navigate to Cart
+                    hideAllViews();
+                    cartView.classList.remove('hidden');
+                    navCart.classList.add('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
