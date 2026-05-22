@@ -172,7 +172,7 @@
                             <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                             <span>Upload Design</span>
                         </button>
-                        <button class="action-card card-blue">
+                        <button class="action-card card-blue" id="btn-generate-design">
                             <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                             <span>Generate Design</span>
                         </button>
@@ -616,6 +616,64 @@
                     </div>
                 </div>
 
+                <!-- AI Generator View -->
+                <div class="ai-generator-container hidden" id="ai-generator-view">
+                    <div class="drops-header">
+                        <h2>AI Design Generator</h2>
+                        <button class="btn-back" id="btn-back-home-ai">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back
+                        </button>
+                    </div>
+
+                    <div class="ai-generator-layout">
+                        <!-- Left: Chat Interface -->
+                        <div class="chat-interface">
+                            <div class="chat-history" id="chat-history">
+                                <div class="chat-message ai">
+                                    <div class="message-bubble">
+                                        Hi! I'm your AI Design Assistant. Describe the design you want for your t-shirt, or upload an image to start!
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input-container">
+                                <div class="chat-input-wrapper">
+                                    <button class="icon-btn" id="btn-ai-upload" title="Upload Image">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                    </button>
+                                    <input type="file" id="ai-file-upload" accept="image/*" class="hidden">
+                                    <input type="text" id="ai-prompt-input" placeholder="E.g., A cyberpunk samurai riding a neon motorcycle...">
+                                    <button class="btn-primary" id="btn-ai-send">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Preview Area -->
+                        <div class="ai-preview-area">
+                            <div class="tshirt-mockup" id="ai-tshirt-mockup">
+                                <img class="garment-photo" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=90" alt="T-Shirt Mockup">
+                                <div class="garment-color-overlay"></div>
+                                <div class="design-overlay" id="ai-design-overlay">
+                                    <img src="" id="ai-generated-design-img" alt="Generated Design" class="hidden">
+                                    <div id="ai-loading-overlay" class="loading-overlay hidden">
+                                        <div class="spinner"></div>
+                                        <span>Generating...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ai-preview-actions hidden" id="ai-preview-actions">
+                                <a href="#" id="btn-download-generated" download="generated_design.png" class="btn-primary" style="flex:1; text-align:center; display:flex; justify-content:center; align-items:center;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:6px;display:inline-block;vertical-align:middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                    Download Design
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Global Footer -->
                 <footer class="global-footer">
                     &copy; 2026 IdentityStores. All rights reserved. <br>
@@ -644,11 +702,14 @@
             const settingsView = document.getElementById('settings-view');
             const editorView = document.getElementById('editor-view');
             const profileView = document.getElementById('profile-view');
+            const aiGeneratorView = document.getElementById('ai-generator-view');
             
             const btnDrops = document.getElementById('btn-drops');
             const btnBackHome = document.getElementById('btn-back-home');
             const btnBackHomeCart = document.getElementById('btn-back-home-cart');
             const btnBackHomeOrders = document.getElementById('btn-back-home-orders');
+            const btnBackHomeAi = document.getElementById('btn-back-home-ai');
+            const btnGenerateDesign = document.getElementById('btn-generate-design');
             
             // Notifications & Profile
             const btnNotifications = document.getElementById('btn-notifications');
@@ -680,6 +741,7 @@
                 if(settingsView) settingsView.classList.add('hidden');
                 if(editorView) editorView.classList.add('hidden');
                 if(profileView) profileView.classList.add('hidden');
+                if(aiGeneratorView) aiGeneratorView.classList.add('hidden');
                 navItems.forEach(item => item.classList.remove('active'));
                 if(navSettings) navSettings.classList.remove('active');
             }
@@ -735,6 +797,19 @@
                     hideAllViews();
                     if(homeView) homeView.classList.remove('hidden');
                     if(navDashboard) navDashboard.classList.add('active');
+                });
+            }
+            if (btnBackHomeAi) {
+                btnBackHomeAi.addEventListener('click', () => {
+                    hideAllViews();
+                    if(homeView) homeView.classList.remove('hidden');
+                    if(navDashboard) navDashboard.classList.add('active');
+                });
+            }
+            if (btnGenerateDesign) {
+                btnGenerateDesign.addEventListener('click', () => {
+                    hideAllViews();
+                    if(aiGeneratorView) aiGeneratorView.classList.remove('hidden');
                 });
             }
             if (navDashboard) {
@@ -1084,6 +1159,102 @@
                     hideAllViews();
                     cartView.classList.remove('hidden');
                     navCart.classList.add('active');
+                });
+            }
+            // AI Generator Logic
+            const btnAiSend = document.getElementById('btn-ai-send');
+            const aiPromptInput = document.getElementById('ai-prompt-input');
+            const chatHistory = document.getElementById('chat-history');
+            const btnAiUpload = document.getElementById('btn-ai-upload');
+            const aiFileUpload = document.getElementById('ai-file-upload');
+            const aiGeneratedDesignImg = document.getElementById('ai-generated-design-img');
+            const aiLoadingOverlay = document.getElementById('ai-loading-overlay');
+            const aiPreviewActions = document.getElementById('ai-preview-actions');
+            const btnDownloadGenerated = document.getElementById('btn-download-generated');
+
+            // Sample generated images for simulation
+            const sampleAiImages = [
+                'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=400&auto=format&fit=crop'
+            ];
+
+            function addChatMessage(message, sender = 'user', isImage = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message ${sender}`;
+                
+                let content = '';
+                if (isImage) {
+                    content = `<img src="${message}" class="chat-uploaded-img" alt="Uploaded File">`;
+                } else {
+                    content = message;
+                }
+
+                messageDiv.innerHTML = `<div class="message-bubble">${content}</div>`;
+                chatHistory.appendChild(messageDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+
+            function simulateAiGeneration() {
+                aiLoadingOverlay.classList.remove('hidden');
+                aiGeneratedDesignImg.classList.add('hidden');
+                aiPreviewActions.classList.add('hidden');
+                
+                setTimeout(() => {
+                    const randomImg = sampleAiImages[Math.floor(Math.random() * sampleAiImages.length)];
+                    aiGeneratedDesignImg.src = randomImg;
+                    aiGeneratedDesignImg.classList.remove('hidden');
+                    aiLoadingOverlay.classList.add('hidden');
+                    aiPreviewActions.classList.remove('hidden');
+                    
+                    // Update download link
+                    btnDownloadGenerated.href = randomImg;
+
+                    addChatMessage('I have generated a design based on your prompt! You can preview it on the t-shirt to the right. Let me know if you want any alterations.', 'ai');
+                }, 2000);
+            }
+
+            if (btnAiSend && aiPromptInput) {
+                btnAiSend.addEventListener('click', () => {
+                    const prompt = aiPromptInput.value.trim();
+                    if (prompt) {
+                        addChatMessage(prompt, 'user');
+                        aiPromptInput.value = '';
+                        
+                        // Simulate AI Response
+                        setTimeout(() => {
+                            addChatMessage('Generating your design... Please wait a moment.', 'ai');
+                            simulateAiGeneration();
+                        }, 500);
+                    }
+                });
+
+                aiPromptInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        btnAiSend.click();
+                    }
+                });
+            }
+
+            if (btnAiUpload && aiFileUpload) {
+                btnAiUpload.addEventListener('click', () => {
+                    aiFileUpload.click();
+                });
+
+                aiFileUpload.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            addChatMessage(event.target.result, 'user', true);
+                            
+                            setTimeout(() => {
+                                addChatMessage("I've received your image! What would you like me to alter or apply to it?", 'ai');
+                            }, 1000);
+                        };
+                        reader.readAsDataURL(file);
+                    }
                 });
             }
         });
