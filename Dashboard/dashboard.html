@@ -255,7 +255,123 @@
                             <p>Your cart is empty.</p>
                         </div>
                     </div>
+                    <div class="cart-actions" id="cart-actions-container" style="margin-top: 2rem; text-align: right; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <button class="btn-primary" id="btn-place-order" style="font-size: 1.1rem; padding: 12px 24px;">
+                            Place Order
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;margin-left:8px;display:inline-block;vertical-align:middle;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
                 </div>
+                
+                <!-- Checkout View -->
+                <div class="checkout-container hidden" id="checkout-view">
+                    <div class="drops-header">
+                        <h2>Checkout</h2>
+                        <button class="btn-back" id="btn-back-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Cart
+                        </button>
+                    </div>
+                    
+                    <div class="checkout-layout" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+                        <!-- Left: Form -->
+                        <div class="checkout-form-container settings-card">
+                            <h3>Shipping Information</h3>
+                            <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:0.9rem;">Please enter your delivery details accurately.</p>
+                            
+                            <form id="checkout-form" onsubmit="event.preventDefault(); alert('Order Placed Successfully!'); document.getElementById('btn-back-home').click();">
+                                <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Contact Details</h4>
+                                <div class="settings-grid" style="margin-top:0;">
+                                    <div class="form-group">
+                                        <label>Full Name *</label>
+                                        <input type="text" required placeholder="e.g. Rahul Sharma" class="checkout-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email Address *</label>
+                                        <input type="email" required placeholder="e.g. rahul@example.com" class="checkout-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number *</label>
+                                        <input type="tel" required placeholder="10-digit mobile number" class="checkout-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Alternative Phone</label>
+                                        <input type="tel" placeholder="Optional" class="checkout-input">
+                                    </div>
+                                </div>
+                                
+                                <h4 style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--primary-color);">Address Details</h4>
+                                <div class="settings-grid" style="margin-top:0;">
+                                    <div class="form-group">
+                                        <label>Pincode *</label>
+                                        <input type="text" required placeholder="e.g. 560001" class="checkout-input">
+                                    </div>
+                                    <div class="form-group hidden-mobile"></div>
+                                    <div class="form-group" style="grid-column: 1 / -1;">
+                                        <label>Flat, House no., Building, Company *</label>
+                                        <input type="text" required placeholder="e.g. Flat 101, Skyline Apartments" class="checkout-input">
+                                    </div>
+                                    <div class="form-group" style="grid-column: 1 / -1;">
+                                        <label>Area, Street, Sector, Village *</label>
+                                        <input type="text" required placeholder="e.g. MG Road, Indiranagar" class="checkout-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Taluk / City *</label>
+                                        <input type="text" required placeholder="e.g. Bengaluru North" class="checkout-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>District *</label>
+                                        <input type="text" required placeholder="e.g. Bengaluru Urban" class="checkout-input">
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary" style="margin-top: 2rem; width: 100%; justify-content: center; font-size: 1.1rem; padding: 14px;">
+                                    Save & Continue
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Right: Order Summary -->
+                        <div class="checkout-summary settings-card" style="position: sticky; top: 100px;">
+                            <h3>Order Summary</h3>
+                            <div class="summary-items" id="checkout-summary-items">
+                                <!-- Dummy item -->
+                                <div style="display:flex; gap:1rem; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid var(--border-color);">
+                                    <div style="width:50px; height:50px; background:var(--bg-tertiary); border-radius:8px; display:flex; align-items:center; justify-content:center;">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:var(--text-secondary);"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                    </div>
+                                    <div>
+                                        <p style="font-weight:bold; font-size:0.9rem; color:var(--text-primary);">Identity Items</p>
+                                        <p style="color:var(--text-secondary); font-size:0.8rem;">Qty: 1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="border-top: 1px solid var(--border-color); padding-top:1rem; margin-top:1rem; font-size:0.9rem; color:var(--text-secondary);">
+                                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                                    <span>Subtotal</span>
+                                    <span>$45.00</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                                    <span>Shipping</span>
+                                    <span style="color:var(--success-color);">Free</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; margin-top:1rem; padding-top:1rem; border-top: 1px solid var(--border-color); color:var(--text-primary); font-weight:bold; font-size:1.1rem;">
+                                    <span>Total</span>
+                                    <span>$45.00</span>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.8rem; color: var(--text-secondary); text-align: center;">
+                                <div style="display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--bg-tertiary); padding:8px; border-radius:6px;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                    Secure SSL Checkout
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 
                 <!-- Orders View -->
                 <div class="orders-container hidden" id="orders-view">
@@ -703,13 +819,16 @@
             const editorView = document.getElementById('editor-view');
             const profileView = document.getElementById('profile-view');
             const aiGeneratorView = document.getElementById('ai-generator-view');
+            const checkoutView = document.getElementById('checkout-view');
             
             const btnDrops = document.getElementById('btn-drops');
             const btnBackHome = document.getElementById('btn-back-home');
             const btnBackHomeCart = document.getElementById('btn-back-home-cart');
             const btnBackHomeOrders = document.getElementById('btn-back-home-orders');
             const btnBackHomeAi = document.getElementById('btn-back-home-ai');
+            const btnBackCart = document.getElementById('btn-back-cart');
             const btnGenerateDesign = document.getElementById('btn-generate-design');
+            const btnPlaceOrder = document.getElementById('btn-place-order');
             
             // Notifications & Profile
             const btnNotifications = document.getElementById('btn-notifications');
@@ -742,6 +861,7 @@
                 if(editorView) editorView.classList.add('hidden');
                 if(profileView) profileView.classList.add('hidden');
                 if(aiGeneratorView) aiGeneratorView.classList.add('hidden');
+                if(checkoutView) checkoutView.classList.add('hidden');
                 navItems.forEach(item => item.classList.remove('active'));
                 if(navSettings) navSettings.classList.remove('active');
             }
@@ -804,6 +924,20 @@
                     hideAllViews();
                     if(homeView) homeView.classList.remove('hidden');
                     if(navDashboard) navDashboard.classList.add('active');
+                });
+            }
+            if (btnPlaceOrder) {
+                btnPlaceOrder.addEventListener('click', () => {
+                    hideAllViews();
+                    if(checkoutView) checkoutView.classList.remove('hidden');
+                    if(navCart) navCart.classList.add('active');
+                });
+            }
+            if (btnBackCart) {
+                btnBackCart.addEventListener('click', () => {
+                    hideAllViews();
+                    if(cartView) cartView.classList.remove('hidden');
+                    if(navCart) navCart.classList.add('active');
                 });
             }
             if (btnGenerateDesign) {
