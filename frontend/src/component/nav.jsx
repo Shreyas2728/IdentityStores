@@ -1,43 +1,94 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { SignInButton, UserButton, useAuth } from '@clerk/react';
 
 const Nav = () => {
   const location = useLocation();
+  const { isLoaded, userId } = useAuth();
   
   return (
-    <nav className="bg-slate-900 border-b border-slate-700 px-6 py-4 flex items-center justify-between shadow-sm z-50 relative">
+    <nav className="fixed top-0 w-full bg-gradient-to-b from-black/70 to-transparent pt-6 pb-8 px-8 flex items-center justify-between z-50">
       <div className="flex items-center gap-3">
-        <div className="inline-flex justify-center items-center w-8 h-8 bg-white/5 rounded-lg border border-white/10">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M2 17L12 22L22 17" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M2 12L12 17L22 12" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+        {/* Real brand logo */}
+        <Link to="/" className="flex items-center">
+          <img 
+            src="/is_logo_perfect.png" 
+            alt="Identity Stores" 
+            className="w-20 h-20 object-contain mix-blend-screen"
+            style={{ mixBlendMode: 'screen' }}
+          />
+        </Link>
         <Link to="/">
-          <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-500">
-            IdentityStores
+          <h1 className="text-xl font-bold tracking-widest uppercase text-white hover:text-gray-300 transition-colors ml-2 bg-black/30 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-md shadow-lg" style={{ letterSpacing: '0.15em' }}>
+            Identity<span className="text-[#E01E2E]">Stores</span>
           </h1>
         </Link>
       </div>
       
-      <ul className="flex items-center gap-6">
+      <ul className="flex items-center gap-8">
         <li>
           <Link 
             to="/" 
-            className={`transition-colors font-medium pb-1 ${location.pathname === '/' ? 'text-violet-400 border-b-2 border-violet-500' : 'text-slate-300 hover:text-white'}`}
+            className={`transition-all duration-300 font-semibold text-xs uppercase tracking-wider pb-1 relative ${
+              location.pathname === '/' 
+                ? 'text-[#E01E2E]' 
+                : 'text-gray-400 hover:text-white'
+            }`}
           >
-            Home
+            <span>Home</span>
+            {location.pathname === '/' && (
+              <span className="absolute bottom-[-6px] left-0 right-0 h-[2px] bg-[#E01E2E] shadow-[0_0_8px_rgba(220,30,46,0.6)]" />
+            )}
           </Link>
         </li>
         <li>
           <Link 
             to="/dashboard" 
-            className={`transition-colors font-medium pb-1 ${location.pathname === '/dashboard' ? 'text-violet-400 border-b-2 border-violet-500' : 'text-slate-300 hover:text-white'}`}
+            className={`transition-all duration-300 font-semibold text-xs uppercase tracking-wider pb-1 relative ${
+              location.pathname === '/dashboard' 
+                ? 'text-[#E01E2E]' 
+                : 'text-gray-400 hover:text-white'
+            }`}
           >
-            Dashboard
+            <span>Dashboard</span>
+            {location.pathname === '/dashboard' && (
+              <span className="absolute bottom-[-6px] left-0 right-0 h-[2px] bg-[#E01E2E] shadow-[0_0_8px_rgba(220,30,46,0.6)]" />
+            )}
           </Link>
         </li>
+        {isLoaded && !userId && (
+          <>
+            <li>
+              <Link 
+                to="/register" 
+                className={`transition-all duration-300 font-semibold text-xs uppercase tracking-wider pb-1 relative ${
+                  location.pathname === '/register' 
+                    ? 'text-[#E01E2E]' 
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                <span>Register</span>
+                {location.pathname === '/register' && (
+                  <span className="absolute bottom-[-6px] left-0 right-0 h-[2px] bg-[#E01E2E] shadow-[0_0_8px_rgba(220,30,46,0.6)]" />
+                )}
+              </Link>
+            </li>
+            <li>
+              <SignInButton mode="modal">
+                <button className="px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white border border-white/20 rounded-md hover:bg-white/10 transition-colors backdrop-blur-sm cursor-pointer ml-2">
+                  Sign In
+                </button>
+              </SignInButton>
+            </li>
+          </>
+        )}
+        {isLoaded && userId && (
+          <li>
+            <div className="ml-2 hover:scale-105 transition-transform duration-300">
+              <UserButton appearance={{ elements: { avatarBox: "w-10 h-10 border-2 border-transparent hover:border-[#E01E2E] transition-colors rounded-full" } }} />
+            </div>
+          </li>
+        )}
       </ul>
     </nav>
   );
