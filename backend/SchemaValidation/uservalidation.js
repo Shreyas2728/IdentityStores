@@ -1,7 +1,7 @@
-import {z} from 'zod'
+import { z } from 'zod'
 
 
-const userSchema = z.object({
+export const userSchema = z.object({
     clerk_id: z.string({ required_error: "Clerk ID is required" }),
     first_name: z.string({ required_error: "First name is required" }).min(3, "The name must be of atleast length 3"),
     last_name: z.string().optional(),
@@ -12,7 +12,9 @@ const userSchema = z.object({
         .transform((dateString) => new Date(dateString)),
     gender: z.enum(["Male", "Female", "Other"], {
         errorMap: () => ({ message: "Gender must be Male, Female, or Other" })
-    }) 
+    })
 })
 
-export default userSchema
+
+
+export const updateUserSchema = userSchema.omit({ clerk_id: true }).partial()
